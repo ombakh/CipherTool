@@ -11,7 +11,12 @@ public class Vigenere {
 //    }
 
     public static void main(String[] args) {
+        String plaintext = "";
+        String key = "";
 
+        System.out.println("PLAINTEXT: ");
+        System.out.println("KEY");
+        System.out.println("ENCRYPTED");
     }
 
 }
