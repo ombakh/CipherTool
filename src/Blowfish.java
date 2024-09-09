@@ -22,8 +22,28 @@ public class Blowfish {
         return Base64.getEncoder().encodeToString(encryptedBites); // -> puts encrypted bites into string
 
     }
+
+    public static String decrypt(String ciphertext, SecretKey key) throws Exception {
+        Cipher cipher = Cipher.getInstance("Blowfish");
+        cipher.init(Cipher.DECRYPT_MODE, key);
+
+        //plaintext -> Base64 again
+        byte[] decodedBytes = Base64.getDecoder().decode(ciphertext);
+        byte[] decryptedBytes = cipher.doFinal(decodedBytes);
+        return new String(decryptedBytes, "UTF-8"); // returns final text
+
+    }
     public static void main(String[] args) throws Exception {
-        System.out.println(generateKey());
+        //generates a key
+        SecretKey secretKey = generateKey();
+
+        String plaintext = "This is going to be encrypted with Blowfish!";
+        String cipher = encrypt(plaintext, secretKey);
+        String decipher = decrypt(plaintext, secretKey);
+
+        System.out.println("PLAINTEXT: " + plaintext);
+        System.out.println("ENCRYPTED TEXT: " + cipher);
+        System.out.println("DECRYPTED TEXT: " + decipher);
     }
 
 }
