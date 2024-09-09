@@ -37,13 +37,15 @@ public class Blowfish {
         //generates a key
         SecretKey secretKey = generateKey();
 
-        String plaintext = "This is going to be encrypted with Blowfish!";
-        String cipher = encrypt(plaintext, secretKey);
-        String decipher = decrypt(plaintext, secretKey);
+        String plaintext = "Hello, Blowfish Encryption!";
+        System.out.println("Plaintext: " + plaintext);
 
-        System.out.println("PLAINTEXT: " + plaintext);
-        System.out.println("ENCRYPTED TEXT: " + cipher);
-        System.out.println("DECRYPTED TEXT: " + decipher);
+        String ciphertext = encrypt(plaintext, secretKey);
+        System.out.println("Encrypted: " + ciphertext);
+
+        String decryptedText = decrypt(ciphertext, secretKey);
+        System.out.println("Decrypted: " + decryptedText);
+
     }
 
 }
