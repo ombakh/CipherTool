@@ -45,8 +45,8 @@ public class Vigenere {
     }
 
     public static void main(String[] args) {
-        String plaintext = "hello";
-        String key = "hi";
+        String plaintext = "Hello, World!";
+        String key = "bananas";
         // declares encrypted and decrypted values in main method
         String encrypted = encrypt(plaintext, key);
         String decrypted = decrypt(encrypted, key);
